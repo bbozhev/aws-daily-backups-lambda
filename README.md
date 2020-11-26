@@ -4,6 +4,7 @@ Use lightweight serverless solution to manage the backups of your Amazon EC2 ins
 
 ## Author
 * Farley - farley _at_ **neonsurge** _dot_ com
+
 **Forked from:**  https://github.com/AndrewFarley/AWS-Automated-Daily-Instance-AMI-Snapshots
 
 ## Purpose
