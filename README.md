@@ -1,9 +1,10 @@
 # Create Rotating Instance AMIs and Volume Backups
-With serverless!
+Use lightweight serverless solution to manage the backups of your Amazon EC2 instances
 
-**Found at:** https://github.com/AndrewFarley/AWS-Automated-Daily-Instance-AMI-Snapshots
+
 ## Author
 * Farley - farley _at_ **neonsurge** _dot_ com
+**Forked from:**  https://github.com/AndrewFarley/AWS-Automated-Daily-Instance-AMI-Snapshots
 
 ## Purpose
 1. A nearly idiot-proof way to begin doing automated regular snapshots across your entire AWS account for both instances AND individual volumes.
@@ -25,24 +26,39 @@ With serverless!
 
 ## Prerequisites
 
+- [Python v3.6+](https://www.python.org/)
 - [Serverless Framework v1.0+](https://serverless.com/)
 - [Nodejs v4.3+](https://nodejs.org/)
 - [Setup your AWS credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 
 ## Setup
 
+### Make sure your CLI has a default AWS credentials setup, if not run this...
 ```bash
-# Make sure your CLI has a default AWS credentials setup, if not run this...
 aws configure
+```
+### Clone this repository with...
+```bash
+git clone git@github.com:bbozhev/aws-daily-backups-lambda.git
+cd aws-daily-backups-lambda
+```
 
-# Clone this repository with...
-git clone git@github.com:AndrewFarley/AWS-Automated-Daily-Instance-AMI-Snapshots.git
-cd AWS-Automated-Daily-Instance-AMI-Snapshots
+### Install python requirements
+```bash
+pip3 install -r requirements.txt
+```
 
-# Deploy it with...
+### Install nodejs requirements 
+```bash
+npm install
+```
+
+### Deploy it with...
+```bash
 serverless deploy
-
-# Run it manually with...
+```
+### Run it manually with...
+```bash
 serverless invoke --function execute_handler --log
 ```
 
@@ -155,24 +171,3 @@ Simple remove with the serverless remove command.  Please keep in mind any AMIs 
 ```
 serverless remove
 ```
-
-## Changelog / Major Recent Features
-
-* June 6, 2018  - Initial public release
-* June 21, 2018 - Moved configuration to env variables, bugfix, more exception handling
-* September 27, 2018 - [Bugfix, internal AWS tags prefixed with aws: caused failures, renaming those tag keys](https://github.com/AndrewFarley/AWSAutomatedDailyInstanceAMISnapshots/pull/8)
-* November 26, 2018 - [Feature Snapshot Volumes added](https://github.com/AndrewFarley/AWSAutomatedDailyInstanceAMISnapshots/pull/11), thanks [@milvain](https://github.com/milvain) for the [idea](https://github.com/AndrewFarley/AWSAutomatedDailyInstanceAMISnapshots/issues/9)
-* November 26, 2018 - [Feature Documentation for Weekly Snapshots ](https://github.com/AndrewFarley/AWSAutomatedDailyInstanceAMISnapshots/pull/12), thanks [@ChampionWolf](https://github.com/ChampionWolf) for the [idea](https://github.com/AndrewFarley/AWSAutomatedDailyInstanceAMISnapshots/issues/10)
-
-
-## Adoption / Usage
-
-This script is in use at a number of my clients including [OlinData](https://olindata.com), [Shake-On](https://www.shake-on.com/), [Xeelas](https://xeelas.nl) and [RVillage](https://rvillage.com), and a few others which I can not name.
-
-If you're happily using this script somewhere for a client to make them super happy let me know so I can add a section here for shoutouts to happy customers.  +1 to open source eh?
-
-## Support, Feedback & Questions
-
-Please feel free to file Github bugs if you find any or suggestions for features!  If you're technically minded, please feel free to fork and make your own modifications.  If you make any fixed/changes that are awesome, please send me pull requests or patches.
-
-If you have any questions/problems beyond that, feel free to email me at one of the emails in [author](#author) above.
